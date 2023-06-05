@@ -1,0 +1,59 @@
+/////Global attributes
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+//Attributes: Colors
+$Color-Green-1: #28594B;
+$Color-Green-2: #297350;
+$Color-Green-3: #7EBFA1;
+$Color-Green-4: #779C84;
+$Color-Black-Text: #232323;
+$Color-Orange-1: #EAA58C;
+$Color-Orange-2: #F2B6A0;
+$Color-White: #FFFFFF;
+$Color-Gray-BG: #F2F2F2;
+
+$largeTitle: 2em;
+$titles: 1.25em;
+$body: 1em;
+$smallBody: 0.75em;
+
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+    //All the text are made of Poppins!
+    font-family: "Poppins";
+}
+
+body{
+    background-color: $Color-Gray-BG;
+}
+
+p{
+    color: $Color-Green-1;
+}
+
+h2{
+    color: $Color-Green-1;
+}
+
+a{
+    text-decoration: none;
+    color: $Color-Green-1;
+}
+
+.index{
+    width: 82vw;
+    margin: 20px auto auto auto;
+}
+
+.button{
+        display: block;
+        text-align: center;
+        width: 100%;
+        height: 3em;
+        padding: 10px;
+        border-radius: 9px;
+        background-color: $Color-Orange-1;
+        border: none;
+}
