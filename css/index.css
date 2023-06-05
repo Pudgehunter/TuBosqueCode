@@ -25,8 +25,20 @@ a {
 }
 
 .index {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
   width: 82vw;
   margin: 20px auto auto auto;
+}
+
+.index__img {
+  width: 100%;
 }
 
 .button {

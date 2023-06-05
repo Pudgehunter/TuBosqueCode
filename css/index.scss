@@ -43,9 +43,16 @@ a{
 }
 
 .index{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     width: 82vw;
     margin: 20px auto auto auto;
+    &__img{
+        width: 100%;
+    }
 }
+
 
 .button{
         display: block;

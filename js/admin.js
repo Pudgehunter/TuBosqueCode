@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+import { getFirestore, doc, getDocs, collection, updateDoc } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -7,24 +7,20 @@ const db = getFirestore(app);
 const form = document.getElementById("form"),
     feedback = document.getElementById("feedbacks");
 
-const uploadNew = async () => {
-    const url = form.url.value;
-    console.log(url);
-    if (url) {
-        //It kind a feedback for me... I don't know if this function is ok or not
-        feedback.innerText = "Tu noticia se esta publicando, espere un momento..."
 
-        try {
-            await addDoc(collection(db, "link"), {
-                url,
-            });
-            feedback.innerText = "¡Tu link ha sido publicada exitosamente!";
-        } catch (e) {
-            feedback.innerText = "¡Tu link no se ha sido publicada!, vuelve a intentarlo";
-        }
-    } else {
-        alert("Completa los datos");
-    }
+const uploadNew = async () => {
+    const collectionRef = collection(db, "link");
+    const { docs } = await getDocs(collectionRef);
+    const docRef = doc(collectionRef, "kifpx7tEgyRJFklGQ0zB");
+    const link = form.url.value;
+
+    updateDoc(docRef, {
+        url: link,
+    }).then(() => {
+        feedback.innerText = "¡Tu link ha sido publicada exitosamente!";
+    }).catch((error) => {
+        console.error("Error al actualizar los datos", error);
+    });
 }
 
 form.addEventListener("submit", e => {
